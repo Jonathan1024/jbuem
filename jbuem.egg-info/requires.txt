@@ -1,0 +1,4 @@
+Django>=1.9,<2.0
+psycopg2
+gunicorn
+whitenoise
