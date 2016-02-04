@@ -5,10 +5,9 @@ from django.template import loader
 
 
 def index(request):
-    message = 'Hello Harrison!'
-    amount = 100
-    context = {
-        'message':message,
-        'amount':amount,
+    enphasePower = 10
+
+    contex:{
+        'enphasePower': enphasePower,
     }
     return render(request, 'MainSite/index.html', context)
