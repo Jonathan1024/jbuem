@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'data_temp',
 		'USER': 'data_bud',
 		'PASSWORD': 'password',
-		'HOST': 'localhost:8000',
+		'HOST': 'localhost',
 		'PORT': '',
     }
 }
