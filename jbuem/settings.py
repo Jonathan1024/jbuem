@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ADMIN_SITE_HEADER = "JBU EM Administration"
 
 # Application definition
 
