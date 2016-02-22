@@ -43,3 +43,8 @@ def index(request):
         'windPower': windPower,
     }
     return render(request, 'MainSite/index.html', context)
+
+
+def test(request):
+
+    return render(request, 'MainSite/test.html')
