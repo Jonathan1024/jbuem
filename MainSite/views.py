@@ -30,6 +30,7 @@ def index(request):
     with connection.cursor() as cur:
         cur.execute(sql2)
         var = cur.fetchone()
+
     selPower = var[1]
 
 
