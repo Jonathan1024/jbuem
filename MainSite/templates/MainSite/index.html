@@ -43,13 +43,13 @@
             <div class="row">
                <div class="jumbotron">
                     <h2>Balzer Power Usage</h2>
-                    <p>{{ selPower|floatformat:2 }} MW</p>
+                    <p>{{ selPower|floatformat:2 }} kW</p>
                 </div>
             </div>
             <div class="row">
                 <div class="jumbotron">
                     <h2>Wind Data</h2>
-                    <p>{{ windPower|floatformat:2 }} kW</p>
+                    <p>{{ windPower|floatformat:2 }} W</p>
                 </div>
             </div>
         </div>
@@ -57,16 +57,16 @@
             <div class="jumbotron">
                 <h2>Solar Data</h2>
                 <h3>Enphase</h3>
-                <p>{{ enphasePower|floatformat:2 }} kW</p>
+                <p>{{ enphasePower|floatformat:2 }} W</p>
                 <h3>Fronius</h3>
-                <p>{{ froniusPower|floatformat:2 }} kW</p>
+                <p>{{ froniusPower|floatformat:2 }} W</p>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="jumbotron">
             <h2>Total Power Produced</h2>
-            <p> NA </p>
+            <p> {{ totalPower | floatformat:2 }}</p>
         </div>
     </div>
     <div class="row"></div>

@@ -8,6 +8,8 @@ from django.db import connection
 def index(request):
     sql = "SELECT * FROM data_temp ORDER BY datetime DESC LIMIT 1;"
     sql2 = "SELECT * FROM sel_data ORDER BY datetime DESC LIMIT 1;"
+    sql3 = "SELECT * FROM wind_data ORDER BY time_stamp DESC LIMIT 1"
+
     var = []
     enphasePower = 0
     froniusPower = 0
@@ -27,12 +29,19 @@ def index(request):
     kandz = var[3]
     eppely = var[4]
 
+    totalPower = float(enphasePower) + float(froniusPower) + float(windPower)
+
     with connection.cursor() as cur:
         cur.execute(sql2)
         var = cur.fetchone()
 
     selPower = var[1]
 
+    with connection.cursor() as cur:
+        cur.execute(sql3)
+        var = cur.fetchone()
+
+    windPower = var[4]
 
     context = {
         'enphasePower': enphasePower,
@@ -42,6 +51,7 @@ def index(request):
         'kandz': kandz,
         'eppely': eppely,
         'windPower': windPower,
+        'totalPower': totalPower,
     }
     return render(request, 'MainSite/index.html', context)
 
