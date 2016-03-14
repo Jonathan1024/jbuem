@@ -1,5 +1,10 @@
+
+/* Background */
+
 body {
-    margin: 0;
-    background: url("../Images/MainPageBackground.jpg") no-repeat center top;
-    background-size: 100% auto;
+    background: url("../Images/MainPageBackground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

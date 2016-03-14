@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ADMIN_SITE_HEADER = "JBU EM Administration"
 
 # Application definition
 
@@ -79,8 +80,8 @@ WSGI_APPLICATION = 'jbuem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'jbu_em',
-		'USER': 'data_train',
+        'NAME': 'data_temp',
+		'USER': 'data_bud',
 		'PASSWORD': 'password',
 		'HOST': 'localhost',
 		'PORT': '',
