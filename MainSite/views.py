@@ -54,6 +54,7 @@ def index(request):
         'windPower': windPower,
         'totalPower': totalPower,
     }
+
     return render(request, 'MainSite/index.html', context)
 
 
@@ -61,6 +62,7 @@ def test(request):
     var = Wind.objects.all() # Show all in Wind
 
     var = Meter.objects.order_by('-time_stamp')[0]
+
     context = {
         'var':var.btc_power
     }
