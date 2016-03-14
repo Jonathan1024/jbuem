@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.db import connection
+from MainSite .models import Solar, Meter, Pyranometer, Wind
 # Create your views here.
 
 
@@ -53,9 +54,16 @@ def index(request):
         'windPower': windPower,
         'totalPower': totalPower,
     }
+
     return render(request, 'MainSite/index.html', context)
 
 
 def test(request):
+    var = Wind.objects.all() # Show all in Wind
 
-    return render(request, 'MainSite/test.html')
+    var = Meter.objects.order_by('-time_stamp')[0]
+
+    context = {
+        'var':var.btc_power
+    }
+    return render(request, 'MainSite/test.html', context)
