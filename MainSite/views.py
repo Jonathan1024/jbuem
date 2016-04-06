@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.db import connection
+import csv
+from django.utils.six.moves import range
+from django.http import StreamingHttpResponse
 from MainSite .models import Solar, Meter, Pyranometer, Wind
 # Create your views here.
 
@@ -40,3 +43,4 @@ def test(request):
         'var':var.btc_power
     }
     return render(request, 'MainSite/test.html', context)
+
