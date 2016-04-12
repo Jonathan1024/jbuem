@@ -44,3 +44,42 @@ def test(request):
     }
     return render(request, 'MainSite/test.html', context)
 
+
+def btc(request):
+
+    context = {
+    }
+
+    return render(request, 'MainSite/btc.html', context)
+
+
+def solar(request):
+
+    context = {
+    }
+
+    return render(request, 'MainSite/solar.html', context)
+
+
+def wind(request):
+
+    context = {
+    }
+
+    return render(request, 'MainSite/wind.html', context)
+
+
+def historical(request):
+
+    context = {
+    }
+
+    return render(request, 'MainSite/historical.html', context)
+
+
+def about(request):
+
+    context = {
+    }
+
+    return render(request, 'MainSite/about.html', context)
