@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Sat Apr 23 2016 01:02:12 GMT+0000 (UTC) -->
+<html data-wf-site="56e77b2d8a573321091637b2" data-wf-page="56e77b2d8a573321091637b3">
+<head>
+  <meta charset="utf-8">
+  <title>Energy Monitoring Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../../static/Resources/CSS/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../../static/Resources/CSS/jbuemp.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../../static/Resources/CSS/webflow.css">
+  <script type="text/javascript" src="../../static/Resources/js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
+  <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+    <style type="text/css">
+      svg {
+      	width: 100%;
+      }
+      .prop {
+        animation: spin 15s infinite linear;
+      }
+      @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+      @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+      @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+    </style>
+</head>
+<body class="body">
+  <div class="w-section w-clearfix mainsection">
+    <div class="title">
+      <h1 class="mainheader">John Brown University Energy Monitoring Project</h1>
+      <p class="projectdesc">A project of the John Brown University Engineering Program</p>
+      <div class="_100percentrule darkrule"></div>
+    </div>
+    <div class="leftcolumn">
+      <div class="w-clearfix iconsection">
+        <div class="iconblock lefticonblock">
+          <div class="iconbox">
+            <p class="sourcename right">Power Source</p>
+            <div class="_100percentrule darkrule"></div><img src="../../static/Resources/Images/vlank-01.svg" class="icon">
+          </div>
+          <div class="_100percentrule darkrule"></div>
+          <p class="currentenergyoutputp right">Current
+            <br>Today's Total
+            <br>Weekly Total
+            <br>Monthly Total
+            <br>Yearly Total</p>
+        </div>
+      </div>
+      <div class="_100percentrule darkrule"></div>
+      <div class="iconblock lefticonblock">
+        <p class="currentenergyoutputp right graphlabels">Today's Total
+          <br>Weekly Total
+          <br>Monthly Total
+          <br>Yearly Total</p>
+      </div>
+      <div class="iconblock lefticonblock">
+        <p class="currentenergyoutputp right graphlabels">Total Share of Renewable Energy Per Month</p>
+      </div>
+    </div>
+    <div class="w-clearfix rightcolumn">
+      <div class="w-clearfix iconsection">
+        <div class="iconblock">
+          <div class="iconbox">
+            <p class="sourcename">Turbine</p>
+            <div class="_100percentrule darkrule"></div><img src="../../static/Resources/Images/turbine-01.svg" class="icon">
+          </div>
+          <div class="_100percentrule greenrule"></div>
+          <p class="currentenergyoutputp"><span id="currentTurbineEnergy">{{ current_wind | floatformat:2}} Wh</span>
+            <br><span id="todayTurbineEnergy">500 kWH</span>
+            <br><span id="weekTurbineEnergy">1,250 kWH</span>
+            <br><span id="monthTurbineEnergy">6,000 kWH</span>
+            <br><span id="yearTurbineEnergy">72,000 kWH</span>
+          </p>
+        </div>
+        <div class="iconblock">
+          <div class="iconbox">
+            <p class="sourcename"><a href="solar" id="unlink">Fronius Solar</a></a></p>
+            <div class="_100percentrule darkrule"></div><img src="../../static/Resources/Images/array-01.svg" class="icon">
+            <div class="_100percentrule froniusrule"></div>
+            <p class="currentenergyoutputp"><span id="currentFroniusEnergy">{{ current_solar_fronius | floatformat:2}} Wh</span>
+              <br><span id="todayFroniusEnergy">500 kWH</span>
+              <br><span id="weekFroniusEnergy">1,250 kWH</span>
+              <br><span id="monthFroniusEnergy">6,000 kWH</span>
+              <br><span id="yearFroniusEnergy">72,000 kWH</span>
+            </p>
+          </div>
+        </div>
+        <div class="iconblock">
+          <div class="iconbox">
+            <p class="sourcename"><a href="solar" id="unlink">Enphase Solar</a></p>
+            <div class="_100percentrule darkrule"></div><img src="../../static/Resources/Images/panel2.svg" class="icon">
+            <div class="_100percentrule enphaserule"></div>
+            <p class="currentenergyoutputp"><span id="currentEnphaseEnergy">{{ current_solar_enphase | floatformat:2}} Wh</span>
+              <br><span id="todayEnphaseEnergy">500 kWH</span>
+              <br><span id="weekEnphaseEnergy">1,250 kWH</span>
+              <br><span id="monthEnphaseEnergy">6,000 kWH</span>
+              <br><span id="yearEnphaseEnergy">72,000 kWH</span>
+            </p>
+          </div>
+        </div>
+        <div class="iconblock">
+          <div class="iconbox">
+            <p class="sourcename">Power Grid</p>
+            <div class="_100percentrule darkrule"></div><img src="../../static/Resources/Images/grid-01.svg" class="icon">
+            <div class="_100percentrule redrule"></div>
+            <p class="currentenergyoutputp"><span id="currentGridEnergy">{{ current_grid | floatformat:2}} Wh</span>
+              <br><span id="todayGridEnergy">500 kWH</span>
+              <br><span id="weekGridEnergy">1,250 kWH</span>
+              <br><span id="monthGridEnergy">6,000 kWH</span>
+              <br><span id="yearGridEnergy">72,000 kWH</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="_100percentrule darkrule"></div>
+      <div class="graphsyo">
+        <div data-ix="bargraphonload" class="thisabargraphyo">
+          <div class="w-clearfix todaysbarsegment">
+            <div id="todayTurbineSegment" class="turbinebarsegment">
+              <div id="todayTurbinePercent" class="percentlabel">10%</div>
+            </div>
+            <div id="todayFroniusSegment" class="froniusbarsegment">
+              <div id="todayFroniusPercent" class="percentlabel">15%</div>
+            </div>
+            <div id="todayEnphaseSegment" class="enphasebarsegment">
+              <div id="todayEnphasePercent" class="percentlabel">15%</div>
+            </div>
+            <div id="todayGridSegment" class="gridbarsegment">
+              <div id="todayGridPercent" class="percentlabel">60%</div>
+            </div>
+          </div>
+        </div>
+        <div data-ix="bargraphonload-2" class="thisabargraphyo">
+          <div class="weeksbarsegment">
+            <div id="weekTurbineSegment" class="turbinebarsegment">
+              <div id="weekTurbinePercent" class="percentlabel">10%</div>
+            </div>
+            <div id="weekFroniusSegment" class="froniusbarsegment">
+              <div id="weekFroniusPercent" class="percentlabel">15%</div>
+            </div>
+            <div id="weekEnphaseSegment" class="enphasebarsegment">
+              <div id="weekEnphasePercent" class="percentlabel">15%</div>
+            </div>
+            <div id="weekGridSegment" class="gridbarsegment">
+              <div id="weekGridPercent" class="percentlabel">60%</div>
+            </div>
+          </div>
+        </div>
+        <div data-ix="bargraphonload-3" class="thisabargraphyo">
+          <div class="monthsbarsegment">
+            <div id="monthTurbineSegment" class="turbinebarsegment">
+              <div id="monthTurbinePercent" class="percentlabel">10%</div>
+            </div>
+            <div id="monthFroniusSegment" class="froniusbarsegment">
+              <div id="monthFroniusPercent" class="percentlabel">15%</div>
+            </div>
+            <div id="monthEnphaseSegment" class="enphasebarsegment">
+              <div id="monthEnphasePercent" class="percentlabel">15%</div>
+            </div>
+            <div id="monthGridSegment" class="gridbarsegment">
+              <div id="monthGridPercent" class="percentlabel">60%</div>
+            </div>
+          </div>
+        </div>
+        <div data-ix="bargraphonload-4" class="thisabargraphyo">
+          <div class="yearsbarsegment">
+            <div id="yearTurbineSegment" class="turbinebarsegment">
+              <div id="yearTurbinePercent" class="percentlabel">10%</div>
+            </div>
+            <div id="yearFroniusSegment" class="froniusbarsegment">
+              <div id="yearFroniusPercent" class="percentlabel">15%</div>
+            </div>
+            <div id="yearEnphaseSegment" class="enphasebarsegment">
+              <div id="yearEnphasePercent" class="percentlabel">15%</div>
+            </div>
+            <div id="yearGridSegment" class="gridbarsegment">
+              <div id="yearGridPercent" class="percentlabel">60%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-clearfix monthbargraphs">
+        <div class="monthvertbarcolumn">
+          <div id="janBar" data-ix="verticalbargraphonload" class="monthvertbar">
+            <p id="janPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Jan</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="febBar" data-ix="verticalbargraphonload-2" class="monthvertbar">
+            <p id="febPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Feb</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="marBar" data-ix="verticalbargraphonload-3" class="monthvertbar">
+            <p id="marPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Mar</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="aprBar" data-ix="verticalbargraphonload-4" class="monthvertbar">
+            <p id="aprPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Apr</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="mayBar" data-ix="verticalbargraphonload-5" class="monthvertbar">
+            <p id="mayPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">May</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="junBar" data-ix="verticalbargraphonload-6" class="monthvertbar">
+            <p id="junPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Jun</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="julBar" data-ix="verticalbargraphonload-7" class="monthvertbar">
+            <p id="julPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Jul</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="augBar" data-ix="verticalbargraphonload-8" class="monthvertbar">
+            <p id="augPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Aug</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="sepBar" data-ix="verticalbargraphonload-9" class="monthvertbar">
+            <p id="sepPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Sep</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="octBar" data-ix="verticalbargraphonload-10" class="monthvertbar">
+            <p id="octPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Oct</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="novBar" data-ix="verticalbargraphonload-11" class="monthvertbar">
+            <p id="novPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Nov</p>
+        </div>
+        <div class="monthvertbarcolumn">
+          <div id="decBar" data-ix="verticalbargraphonload-12" class="monthvertbar">
+            <p id="decPercent" class="monthpercentlabel">12%</p>
+          </div>
+          <p class="monthlabel">Dec</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="../../static/Resources/js/webflow.js"></script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>

@@ -1,0 +1,473 @@
+.body {
+  height: 100%;
+  background-color: #efefef;
+}
+
+.demodiv {
+  position: relative;
+  top: 50%;
+  display: block;
+  width: 25%;
+  height: 25%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #e6e6e6;
+  -webkit-transform: translate(0px, -50%);
+  -ms-transform: translate(0px, -50%);
+  transform: translate(0px, -50%);
+}
+
+.testsvg {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mainsection {
+  height: 100%;
+  padding-top: 20px;
+  padding-right: 10%;
+  padding-left: 10%;
+  background-color: #efefef;
+  color: #222;
+}
+
+.maincontainer {
+  height: 100%;
+}
+
+.mainnavbar {
+  height: 64px;
+}
+
+.navbar {
+  position: relative;
+  width: 100%;
+}
+
+.maincontent {
+  width: 100%;
+  height: 100%;
+}
+
+.mainheader {
+  position: static;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 42px;
+  line-height: 48px;
+}
+
+._100percentrule {
+  width: 100%;
+  height: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+._100percentrule.lightrule {
+  background-color: #eee;
+}
+
+._100percentrule.darkrule {
+  height: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #222;
+}
+
+._100percentrule.greenrule {
+  height: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #2ed849;
+}
+
+._100percentrule.redrule {
+  height: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #ff4d4d;
+}
+
+._100percentrule.froniusrule {
+  height: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #28b63f;
+}
+
+._100percentrule.enphaserule {
+  height: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #229e36;
+}
+
+._100percentwidth33percentheight {
+  width: 100%;
+  height: 33.332%;
+}
+
+._100percentwidth33percentheight.lightbg {
+  background-color: #eee;
+  color: #222;
+}
+
+._100percentwidth16percentheight {
+  width: 100%;
+  height: 16.666px;
+}
+
+.title {
+  width: 100%;
+  float: left;
+}
+
+.icon {
+  display: block;
+  margin-bottom: 0px;
+}
+
+._33percentwidth100percentheight {
+  position: relative;
+  width: 33.332%;
+  padding: 32px;
+  float: left;
+}
+
+.turbine {
+  display: block;
+  height: 75%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.weekpower {
+  color: #222;
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.green {
+  color: #2ed849;
+}
+
+.notgreen {
+  color: #ee4e4e;
+}
+
+.iconsection {
+  width: 100%;
+}
+
+.threecolumn {
+  height: 100%;
+}
+
+.sourcecolumn {
+  height: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.shine {
+  position: absolute;
+  display: none;
+  overflow: visible;
+  width: 10%;
+  height: 100%;
+  float: none;
+  clear: none;
+  background-color: #eee;
+}
+
+.container {
+  display: block;
+  width: 80%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.darktext {
+  color: #222;
+}
+
+.bargraphsection {
+  width: 100%;
+}
+
+.currentenergyoutputp {
+  margin-bottom: 0px;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: left;
+}
+
+.currentenergyoutputp.right {
+  margin-bottom: 0px;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.currentenergyoutputp.right.graphlabels {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.currentenergyoutputspan {
+  color: #8ae65f;
+}
+
+.currentenergyconsumptionspan {
+  color: #fd5959;
+}
+
+.projectdesc {
+  margin-top: 10px;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.iconblock {
+  width: 25%;
+  margin-right: 0px;
+  padding: 0px 32px 16px 0px;
+  float: left;
+}
+
+.iconblock.lefticonblock {
+  width: 100%;
+  padding-top: 0px;
+}
+
+.leftcolumn {
+  width: 20%;
+  height: 100%;
+  float: left;
+}
+
+.rightcolumn {
+  width: 80%;
+  height: 100%;
+  float: left;
+}
+
+.sourcename {
+  font-size: 24px;
+  line-height: 40px;
+}
+
+.sourcename.right {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.graphsyo {
+  width: 100%;
+  float: left;
+}
+
+.thisabargraphyo {
+  height: 36px;
+}
+
+.todaysbarsegment {
+  position: relative;
+  top: 10%;
+  width: 33%;
+  height: 80%;
+}
+
+.weeksbarsegment {
+  position: relative;
+  top: 10%;
+  width: 50%;
+  height: 80%;
+}
+
+.monthsbarsegment {
+  position: relative;
+  top: 10%;
+  width: 75%;
+  height: 80%;
+}
+
+.yearsbarsegment {
+  position: relative;
+  top: 10%;
+  width: 100%;
+  height: 80%;
+}
+
+.turbinebarsegment {
+  width: 10%;
+  height: 100%;
+  float: left;
+  background-image: -webkit-linear-gradient(270deg, #2ed849, #2ed849);
+  background-image: linear-gradient(180deg, #2ed849, #2ed849);
+}
+
+.froniusbarsegment {
+  width: 15%;
+  height: 100%;
+  float: left;
+  background-color: #28b63f;
+}
+
+.enphasebarsegment {
+  width: 15%;
+  height: 100%;
+  float: left;
+  background-color: #229e36;
+}
+
+.gridbarsegment {
+  width: 60%;
+  height: 100%;
+  float: left;
+  background-color: #ff4d4d;
+}
+
+.percentlabel {
+  position: relative;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate(0px, -25%);
+  -ms-transform: translate(0px, -25%);
+  transform: translate(0px, -25%);
+  color: #efefef;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.froniuspercent {
+  position: relative;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate(0px, -25%);
+  -ms-transform: translate(0px, -25%);
+  transform: translate(0px, -25%);
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+
+.monthbargraphs {
+  width: 100%;
+  height: 250px;
+  margin-top: 16px;
+  float: left;
+}
+
+.monthvertbar {
+  width: 100%;
+  height: 100%;
+  padding-top: 16px;
+  background-color: #2ed849;
+}
+
+.monthlabel {
+  margin-top: 10px;
+  color: #222;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.monthvertbarcolumn {
+  width: 7.3%;
+  height: 80%;
+  margin-right: 1%;
+  float: left;
+}
+
+.monthpercentlabel {
+  color: #efefef;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: center;
+}
+
+#unlink {
+  color: #000000;
+  text-decoration: none;
+}
+
+#unlink:hover {
+  text-decoration: underline;
+}
+
+html.w-mod-js *[data-ix="bargraphonload"] {
+  width: 10%;
+}
+
+html.w-mod-js *[data-ix="bargraphonload-2"] {
+  width: 10%;
+}
+
+html.w-mod-js *[data-ix="bargraphonload-3"] {
+  width: 10%;
+}
+
+html.w-mod-js *[data-ix="bargraphonload-4"] {
+  width: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-2"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-3"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-4"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-5"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-6"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-7"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-8"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-9"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-10"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-11"] {
+  height: 10%;
+}
+
+html.w-mod-js *[data-ix="verticalbargraphonload-12"] {
+  height: 10%;
+}

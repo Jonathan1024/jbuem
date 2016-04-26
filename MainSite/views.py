@@ -69,6 +69,25 @@ def wind(request):
     return render(request, 'MainSite/wind.html', context)
 
 
+def dashboard1(request):
+
+
+    meter = Meter.objects.order_by('-time_stamp')[0]
+    solar = Solar.objects.order_by('-time_stamp')[0]
+    wind = Wind.objects.order_by('-time_stamp')[0]
+
+
+
+    context = {
+        'current_solar_enphase': solar.enphase_power,
+        'current_solar_fronius': solar.fronius_power,
+        'current_wind': wind.wind_power,
+        'current_grid': meter.btc_power,
+    }
+
+    return render(request, 'MainSite/dashboard1.html', context)
+
+
 def historical(request):
 
     context = {
