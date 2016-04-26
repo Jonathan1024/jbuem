@@ -1,16 +1,18 @@
 from __future__ import unicode_literals
-
 from django.db import models
+
 
 class Meter(models.Model):
     time_stamp = models.DateTimeField()
     btc_power = models.CharField(max_length=50)
     power_factor = models.CharField(max_length=50)
 
+
 class Solar(models.Model):
     time_stamp = models.DateTimeField()
     enphase_power = models.CharField(max_length=50)
     fronius_power = models.CharField(max_length=50)
+
 
 class Wind(models.Model):
     time_stamp = models.DateTimeField()
@@ -19,6 +21,7 @@ class Wind(models.Model):
     humidity = models.CharField(max_length=50)
     temperature = models.CharField(max_length=50)
     wind_power = models.CharField(max_length=50)
+
 
 class Pyranometer(models.Model):
     time_stamp = models.DateTimeField()
