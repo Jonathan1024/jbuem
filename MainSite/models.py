@@ -24,3 +24,39 @@ class Pyranometer(models.Model):
     time_stamp = models.DateTimeField()
     kandz = models.CharField(max_length=50)
     eppely = models.CharField(max_length=50)
+
+
+class EnphaseTotals(models.Model):
+    time_stamp = models.DateTimeField()
+    daily_total = models.CharField(max_length=50)
+    weekly_total = models.CharField(max_length=50)
+    monthly_total = models.CharField(max_length=50)
+    yearly_total = models.CharField(max_length=50)
+    lifetime_total = models.CharField(max_length=50)
+
+
+class FroniusTotals(models.Model):
+    time_stamp = models.DateTimeField()
+    daily_total = models.CharField(max_length=50)
+    weekly_total = models.CharField(max_length=50)
+    monthly_total = models.CharField(max_length=50)
+    yearly_total = models.CharField(max_length=50)
+    lifetime_total = models.CharField(max_length=50)
+
+
+class WindTotals(models.Model):
+    time_stamp = models.DateTimeField()
+    daily_total = models.CharField(max_length=50)
+    weekly_total = models.CharField(max_length=50)
+    monthly_total = models.CharField(max_length=50)
+    yearly_total = models.CharField(max_length=50)
+    lifetime_total = models.CharField(max_length=50)
+
+
+class MeterTotals(models.Model):
+    time_stamp = models.DateTimeField()
+    daily_total = models.CharField(max_length=50)
+    weekly_total = models.CharField(max_length=50)
+    monthly_total = models.CharField(max_length=50)
+    yearly_total = models.CharField(max_length=50)
+    lifetime_total = models.CharField(max_length=50)
