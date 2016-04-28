@@ -4,41 +4,33 @@
 
 {% block container %}
     <div class="container">
-    <div class="row" style="margin-top: 5%">
-        <div class="col-lg-6">
-            <div class="row">
-               <div class="jumbotron">
-                    <h2>Balzer Power Usage</h2>
-                    <p>{{ selPower|floatformat:2 }} kW</p>
+        <img class="img-responsive" src="../../static/Resources/Images/btc_1.jpg">
+        <div class="well well-sm" style="margin-bottom: 10px;">
+            <div class="row hidden-lg hidden-md">
+                <div class="col-xs-6">
+                    Renewable: {{ totalPower | floatformat:2 }} W
+                </div>
+                <div class="col-xs-6">
+                    Grid: {{ selPower | floatformat:2 }} kW
                 </div>
             </div>
-            <div class="row">
-                <div class="jumbotron">
-                    <h2>Wind Data</h2>
-                    <p>{{ windPower|floatformat:2 }} W</p>
+            <div class="row hidden-sm hidden-xs">
+                <div class="col-md-3">
+                    Wind Energy: {{ windPower | floatformat:2 }} W
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="jumbotron">
-                <h2>Solar Data</h2>
-                <h3>Enphase</h3>
-                <p>{{ enphasePower|floatformat:2 }} W</p>
-                <h3>Fronius</h3>
-                <p>{{ froniusPower|floatformat:2 }} W</p>
+                <div class="col-md-3">
+                    Enphase Energy: {{ enphasePower | floatformat:2 }} W
+                </div>
+                <div class="col-md-3">
+                    Fronius Energy: {{ froniusPower | floatformat:2 }} W
+                </div>
+                <div class="col-md-3">
+                    Grid Energy: {{ selPower | floatformat:2 }} kW
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="jumbotron">
-            <h2>Total Power Produced</h2>
-            <p> {{ totalPower | floatformat:2 }}</p>
-        </div>
-    </div>
-    <div class="row"></div>
-</div>
+    {% include 'MainSite/includes/indexdescription.html' %}
 
-<script>
-window.setTimeout(function(){ document.location.reload(true); }, 30000);
-</script>
+
 {% endblock container %}
