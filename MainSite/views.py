@@ -6,6 +6,7 @@ import csv
 from django.utils.six.moves import range
 from django.http import StreamingHttpResponse
 from MainSite .models import Solar, Meter, Pyranometer, Wind
+import json
 # Create your views here.
 
 
@@ -47,7 +48,10 @@ def test(request):
 
 def btc(request):
 
+    dummydata = [ [ 1138683600000 , 7.2800122043237] , [ 1141102800000 , 7.1187787503354] , [ 1143781200000 , 8.351887016482] ]
+
     context = {
+        'btc_power': dummydata
     }
 
     return render(request, 'MainSite/btc.html', context)
@@ -86,19 +90,3 @@ def dashboard1(request):
     }
 
     return render(request, 'MainSite/dashboard1.html', context)
-
-
-def historical(request):
-
-    context = {
-    }
-
-    return render(request, 'MainSite/historical.html', context)
-
-
-def about(request):
-
-    context = {
-    }
-
-    return render(request, 'MainSite/about.html', context)

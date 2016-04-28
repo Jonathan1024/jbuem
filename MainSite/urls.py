@@ -8,6 +8,4 @@ urlpatterns = [
     url(r'solar/$', views.solar, name='solar'),
     url(r'wind/$', views.wind, name='wind'),
     url(r'dashboard1/$', views.dashboard1, name="dashboard1"),
-    url(r'historical/$', views.historical, name='historical'),
-    url(r'about/$', views.about, name='about'),
 ]
