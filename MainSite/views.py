@@ -76,7 +76,6 @@ def wind(request):
 
 def dashboard1(request):
 
-
     meter = Meter.objects.order_by('-time_stamp')[0]
     solar = Solar.objects.order_by('-time_stamp')[0]
     wind = Wind.objects.order_by('-time_stamp')[0]
@@ -88,8 +87,6 @@ def dashboard1(request):
     fronius_daily_percent = (float(fronius_totals.daily_total)/daily_total) * 100
     enphase_daily_percent = (float(enphase_totals.daily_total)/daily_total) * 100
     grid_daily_percent = ((float(grid_totals.daily_total) * 1000)/daily_total) * 100
-
-
 
     context = {
         'current_solar_enphase': solar.enphase_power,
