@@ -82,8 +82,8 @@ def dashboard1(request):
     wind = Wind.objects.order_by('-time_stamp')[0]
     enphase_totals = EnphaseTotals.objects.order_by('-time_stamp')[0]
     fronius_totals = FroniusTotals.objects.order_by('-time_stamp')[0]
-    grid_totals = WindTotals.objects.order_by('-time_stamp')[0]
-    # wind_totals = EnphaseTotals.objects.order_by('-time_stamp')[0]
+    grid_totals = MeterTotals.objects.order_by('-time_stamp')[0]
+    # wind_totals = WindTotals.objects.order_by('-time_stamp')[0]
 
 
 
