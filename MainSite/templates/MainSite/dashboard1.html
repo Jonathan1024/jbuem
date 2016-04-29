@@ -113,73 +113,72 @@
       <div class="_100percentrule darkrule"></div>
       <div class="graphsyo">
         <div data-ix="bargraphonload" class="thisabargraphyo">
-          <div class="w-clearfix todaysbarsegment">
-            <div id="todayTurbineSegment" class="turbinebarsegment">
-              <div id="todayTurbinePercent" class="percentlabel">10%</div>
+          <div class="w-clearfix todaysbarsegment" style="width: 100%;">
+            <div id="todayTurbineSegment" class="turbinebarsegment" style="width: {{ wind_daily_percent }}%;">
+              <div id="todayTurbinePercent" class="percentlabel">{{ wind_daily_percent | floatformat:1}}%</div>
             </div>
-            <div id="todayFroniusSegment" class="froniusbarsegment">
+            <div id="todayFroniusSegment" class="froniusbarsegment" style="width: {{ fronius_daily_percent }}%;">
               <div id="todayFroniusPercent" class="percentlabel">{{ fronius_daily_percent | floatformat:1 }}%</div>
             </div>
-            <div id="todayEnphaseSegment" class="enphasebarsegment">
+            <div id="todayEnphaseSegment" class="enphasebarsegment" style="width: {{ enphase_daily_percent }}%;">
               <div id="todayEnphasePercent" class="percentlabel">{{ enphase_daily_percent | floatformat:1 }}%</div>
             </div>
-            <div id="todayGridSegment" class="gridbarsegment">
+            <div id="todayGridSegment" class="gridbarsegment" style="width: {{ grid_daily_percent }}%;">
               <div id="todayGridPercent" class="percentlabel">{{ grid_daily_percent | floatformat:1 }}%</div>
             </div>
           </div>
         </div>
         <div data-ix="bargraphonload-2" class="thisabargraphyo">
-          <div class="weeksbarsegment">
-            <div id="weekTurbineSegment" class="turbinebarsegment">
-              <div id="weekTurbinePercent" class="percentlabel">10%</div>
+          <div class="weeksbarsegment" style="width: 100%;">
+            <div id="weekTurbineSegment" class="turbinebarsegment" style="width: {{ wind_weekly_percent }}%">
+              <div id="weekTurbinePercent" class="percentlabel">{{ wind_weekly_percent | floatformat:1 }}%</div>
             </div>
-            <div id="weekFroniusSegment" class="froniusbarsegment">
-              <div id="weekFroniusPercent" class="percentlabel">15%</div>
+            <div id="weekFroniusSegment" class="froniusbarsegment" style="width: {{ fronius_weekly_percent }}%">
+              <div id="weekFroniusPercent" class="percentlabel">{{ fronius_weekly_percent | floatformat:1 }}%</div>
             </div>
-            <div id="weekEnphaseSegment" class="enphasebarsegment">
-              <div id="weekEnphasePercent" class="percentlabel">15%</div>
+            <div id="weekEnphaseSegment" class="enphasebarsegment" style="width: {{ enphase_weekly_percent }}%">
+              <div id="weekEnphasePercent" class="percentlabel">{{ enphase_weekly_percent | floatformat:1 }}%</div>
             </div>
-            <div id="weekGridSegment" class="gridbarsegment">
-              <div id="weekGridPercent" class="percentlabel">60%</div>
+            <div id="weekGridSegment" class="gridbarsegment" style="width: {{ grid_weekly_percent }}%;">
+              <div id="weekGridPercent" class="percentlabel">{{ grid_weekly_percent | floatformat:1 }}%</div>
             </div>
           </div>
         </div>
         <div data-ix="bargraphonload-3" class="thisabargraphyo">
-          <div class="monthsbarsegment">
-            <div id="monthTurbineSegment" class="turbinebarsegment">
-              <div id="monthTurbinePercent" class="percentlabel">10%</div>
+          <div class="monthsbarsegment" style="width: 100%;">
+            <div id="monthTurbineSegment" class="turbinebarsegment" style="width: {{ wind_monthly_percent }}%;">
+              <div id="monthTurbinePercent" class="percentlabel">{{ wind_monthly_percent | floatformat:1 }}%</div>
             </div>
-            <div id="monthFroniusSegment" class="froniusbarsegment">
-              <div id="monthFroniusPercent" class="percentlabel">15%</div>
+            <div id="monthFroniusSegment" class="froniusbarsegment" style="width: {{ fronius_monthly_percent }}%;">
+              <div id="monthFroniusPercent" class="percentlabel">{{ fronius_monthly_percent | floatformat:1 }}%</div>
             </div>
-            <div id="monthEnphaseSegment" class="enphasebarsegment">
-              <div id="monthEnphasePercent" class="percentlabel">15%</div>
+            <div id="monthEnphaseSegment" class="enphasebarsegment" style="width: {{ enphase_monthly_percent }}%;">
+              <div id="monthEnphasePercent" class="percentlabel">{{ enphase_monthly_percent | floatformat:1 }}%</div>
             </div>
-            <div id="monthGridSegment" class="gridbarsegment">
-              <div id="monthGridPercent" class="percentlabel">60%</div>
+            <div id="monthGridSegment" class="gridbarsegment" style="width: {{ grid_monthly_percent }}%;">
+              <div id="monthGridPercent" class="percentlabel">{{ grid_monthly_percent | floatformat:1 }}%</div>
             </div>
           </div>
         </div>
         <div data-ix="bargraphonload-4" class="thisabargraphyo">
           <div class="yearsbarsegment">
-            <div id="yearTurbineSegment" class="turbinebarsegment">
-              <div id="yearTurbinePercent" class="percentlabel">10%</div>
+            <div id="yearTurbineSegment" class="turbinebarsegment" style="width: {{ wind_yearly_percent }}%;">
+              <div id="yearTurbinePercent" class="percentlabel">{{ wind_yearly_percent | floatformat:1 }}%</div>
             </div>
-            <div id="yearFroniusSegment" class="froniusbarsegment">
-              <div id="yearFroniusPercent" class="percentlabel">15%</div>
+            <div id="yearFroniusSegment" class="froniusbarsegment" style="width: {{ fronius_yearly_percent }}%;">
+              <div id="yearFroniusPercent" class="percentlabel">{{ fronius_yearly_percent | floatformat:1 }}%</div>
             </div>
-            <div id="yearEnphaseSegment" class="enphasebarsegment">
-              <div id="yearEnphasePercent" class="percentlabel">15%</div>
+            <div id="yearEnphaseSegment" class="enphasebarsegment" style="width: {{ enphase_yearly_percent }}%;">
+              <div id="yearEnphasePercent" class="percentlabel">{{ enphase_yearly_percent | floatformat:1 }}%</div>
             </div>
-            <div id="yearGridSegment" class="gridbarsegment">
-              <div id="yearGridPercent" class="percentlabel">60%</div>
+            <div id="yearGridSegment" class="gridbarsegment" style="width: {{ grid_yearly_percent }}%;">
+              <div id="yearGridPercent" class="percentlabel">{{ grid_yearly_percent | floatformat:1 }}%</div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div id="tre">1234</div>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script type="text/javascript" src="../../static/Resources/js/webflow.js"></script>
   <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
