@@ -83,7 +83,11 @@ def dashboard1(request):
     enphase_totals = EnphaseTotals.objects.order_by('-time_stamp')[0]
     fronius_totals = FroniusTotals.objects.order_by('-time_stamp')[0]
     grid_totals = MeterTotals.objects.order_by('-time_stamp')[0]
-    # wind_totals = WindTotals.objects.order_by('-time_stamp')[0]
+    wind_totals = WindTotals.objects.order_by('-time_stamp')[0]
+    daily_total = float(enphase_totals.daily_total) + float(fronius_totals.daily_total) + (float(grid_totals.daily_total) * 1000)
+    fronius_daily_percent = (float(fronius_totals.daily_total)/daily_total) * 100
+    enphase_daily_percent = (float(enphase_totals.daily_total)/daily_total) * 100
+    grid_daily_percent = ((float(grid_totals.daily_total) * 1000)/daily_total) * 100
 
 
 
@@ -104,6 +108,14 @@ def dashboard1(request):
         'weekly_grid': grid_totals.weekly_total,
         'monthly_grid': grid_totals.monthly_total,
         'yearly_grid': grid_totals.yearly_total,
+        'daily_wind': wind_totals.daily_total,
+        'weekly_wind': wind_totals.weekly_total,
+        'monthly_wind': wind_totals.monthly_total,
+        'yearly_wind': wind_totals.yearly_total,
+        'fronius_daily_percent': fronius_daily_percent,
+        'enphase_daily_percent': enphase_daily_percent,
+        'grid_daily_percent': grid_daily_percent,
+
     }
 
     return render(request, 'MainSite/dashboard1.html', context)

@@ -118,13 +118,13 @@
               <div id="todayTurbinePercent" class="percentlabel">10%</div>
             </div>
             <div id="todayFroniusSegment" class="froniusbarsegment">
-              <div id="todayFroniusPercent" class="percentlabel">15%</div>
+              <div id="todayFroniusPercent" class="percentlabel">{{ fronius_daily_percent | floatformat:1 }}%</div>
             </div>
             <div id="todayEnphaseSegment" class="enphasebarsegment">
-              <div id="todayEnphasePercent" class="percentlabel">15%</div>
+              <div id="todayEnphasePercent" class="percentlabel">{{ enphase_daily_percent | floatformat:1 }}%</div>
             </div>
             <div id="todayGridSegment" class="gridbarsegment">
-              <div id="todayGridPercent" class="percentlabel">60%</div>
+              <div id="todayGridPercent" class="percentlabel">{{ grid_daily_percent | floatformat:1 }}%</div>
             </div>
           </div>
         </div>
@@ -179,6 +179,7 @@
       </div>
     </div>
   </div>
+  <div id="tre">1234</div>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script type="text/javascript" src="../../static/Resources/js/webflow.js"></script>
   <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
