@@ -13,7 +13,6 @@ import datetime
 
 
 def index(request):
-    datetime = 0
     kandz = 0
     eppely = 0
     test1 = [[1138683600000, 7.2800122043237], [1141102800000, 7.1187787503354], [1143781200000, 8.351887016482]]
@@ -22,18 +21,26 @@ def index(request):
     solar = Solar.objects.order_by('-time_stamp')[0]
     wind = Wind.objects.order_by('-time_stamp')[0]
 
+    solar_today = Solar.objects.filter(time_stamp__day=datetime.datetime.today().day,
+                                       time_stamp__month=datetime.datetime.today().month,
+                                       time_stamp__year=datetime.datetime.today().year)
+    enphase_today_array = []
+    for i in solar_today:
+        enphase_today_array.append([i.time_stamp, i.enphase_power])
+
+
     total_power = int(solar.fronius_power) + int(solar.enphase_power)
 
     context = {
         'enphasePower': solar.enphase_power,
         'froniusPower': solar.fronius_power,
         'selPower': meter.btc_power,
-        'datetime': datetime,
         'kandz': kandz,
         'eppely': eppely,
         'windPower': wind.wind_power,
         'totalPower': total_power,
         'test': test1,
+        'enphase_array':enphase_today_array,
     }
 
     return render(request, 'MainSite/index.html', context)
