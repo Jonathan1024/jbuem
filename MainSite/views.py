@@ -3,12 +3,12 @@ from django.http import HttpResponse
 from django.template import loader
 from django.db import connection
 import csv
-from django.utils.six.moves import range
 from django.http import StreamingHttpResponse
 from MainSite .models import Solar, Meter, Pyranometer, \
     Wind, EnphaseTotals, FroniusTotals, WindTotals, MeterTotals
 import json
 import datetime
+import time
 # Create your views here.
 
 
@@ -26,8 +26,7 @@ def index(request):
                                        time_stamp__year=datetime.datetime.today().year)
     enphase_today_array = []
     for i in solar_today:
-        enphase_today_array.append([int(i.time_stamp.strftime('%s')) * 1000, float(i.enphase_power)])
-
+        enphase_today_array.append([i.time_stamp.strftime('%m %d %Y %H:%M:%S'), float(i.enphase_power)])
 
     total_power = int(solar.fronius_power) + int(solar.enphase_power)
 
