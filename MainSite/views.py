@@ -16,6 +16,7 @@ def index(request):
     datetime = 0
     kandz = 0
     eppely = 0
+    test1 = [[1138683600000, 7.2800122043237], [1141102800000, 7.1187787503354], [1143781200000, 8.351887016482]]
 
     meter = Meter.objects.order_by('-time_stamp')[0]
     solar = Solar.objects.order_by('-time_stamp')[0]
@@ -32,6 +33,7 @@ def index(request):
         'eppely': eppely,
         'windPower': wind.wind_power,
         'totalPower': total_power,
+        'test': test1,
     }
 
     return render(request, 'MainSite/index.html', context)
