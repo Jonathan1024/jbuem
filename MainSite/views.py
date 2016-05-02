@@ -26,7 +26,8 @@ def index(request):
                                        time_stamp__year=datetime.datetime.today().year)
     enphase_today_array = []
     for i in solar_today:
-        enphase_today_array.append([i.time_stamp.strftime("%m %d %Y %H:%M:%S"), float(i.enphase_power)])
+        enphase_today_array.append([int(time.mktime(i.time_stamp.timetuple()))*1000, float(i.enphase_power)])
+
 
     total_power = int(solar.fronius_power) + int(solar.enphase_power)
 
