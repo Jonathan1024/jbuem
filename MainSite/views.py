@@ -24,25 +24,27 @@ def index(request):
     solar_today = Solar.objects.order_by('-time_stamp')[0:5760]
     meter_today = Meter.objects.order_by('-time_stamp')[0:5760]
 
+    moder = 10
+
     enphase_today_array = []
     counter = 0
     for i in solar_today:
         counter = counter + 1
-        if counter % 6 == 0:
+        if counter % moder == 0:
             enphase_today_array.append([int(time.mktime(i.time_stamp.timetuple()))*1000, float(i.enphase_power)])
 
     fronius_today_array = []
     counter = 0
     for i in solar_today:
         counter = counter + 1
-        if counter % 6 == 0:
+        if counter % moder == 0:
             fronius_today_array.append([int(time.mktime(i.time_stamp.timetuple()))*1000, float(i.fronius_power)])
 
     meter_today_array = []
     counter = 0
     for i in meter_today:
         counter = counter + 1
-        if counter % 6 == 0:
+        if counter % moder == 0:
             meter_today_array.append([int(time.mktime(i.time_stamp.timetuple()))*1000, float(i.btc_power)*1000])
 
 
