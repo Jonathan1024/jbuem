@@ -157,8 +157,14 @@ def dashboard1(request):
     enphase_daily_percent = (float(enphase_totals.daily_total)/daily_total) * 100
     grid_daily_percent = ((float(grid_totals.daily_total) * 1000)/daily_total) * 100
 
+    total_daily_percent = wind_daily_percent + fronius_daily_percent + enphase_daily_percent + grid_daily_percent
+
     if wind_daily_percent < 0:
         wind_daily_percent = 0
+
+    if total_daily_percent > 99.9:
+        diff = total_daily_percent - 99.9
+        grid_daily_percent = grid_daily_percent - diff
 
     weekly_total = float(wind_totals.weekly_total) + float(enphase_totals.weekly_total) + float(fronius_totals.weekly_total) + (float(grid_totals.weekly_total)*1000)
     wind_weekly_percent = (float(wind_totals.weekly_total)/weekly_total) * 100
@@ -166,8 +172,14 @@ def dashboard1(request):
     enphase_weekly_percent = (float(enphase_totals.weekly_total)/weekly_total) * 100
     grid_weekly_percent = ((float(grid_totals.weekly_total)*1000)/weekly_total) * 100
 
+    total_weekly_percent = wind_weekly_percent + fronius_weekly_percent + enphase_weekly_percent + grid_weekly_percent
+
     if wind_weekly_percent < 0:
         wind_weekly_percent = 0
+
+    if total_weekly_percent > 99.9:
+        diff = total_weekly_percent - 99.9
+        grid_weekly_percent = grid_weekly_percent - diff
 
     monthly_total = float(wind_totals.monthly_total) + float(enphase_totals.monthly_total) + float(fronius_totals.monthly_total) + (float(grid_totals.monthly_total)*1000)
     wind_monthly_percent = (float(wind_totals.monthly_total)/monthly_total) * 100
@@ -175,8 +187,14 @@ def dashboard1(request):
     fronius_monthly_percent = (float(fronius_totals.monthly_total)/monthly_total) * 100
     grid_monthly_percent = ((float(grid_totals.monthly_total)*1000)/monthly_total) * 100
 
+    total_monthly_percent = wind_monthly_percent + fronius_monthly_percent + enphase_monthly_percent + grid_monthly_percent
+
     if wind_monthly_percent < 0:
         wind_monthly_percent = 0
+
+    if total_monthly_percent > 99.9:
+        diff = total_monthly_percent - 99.9
+        grid_monthly_percent = grid_monthly_percent - diff
 
     yearly_total = float(wind_totals.yearly_total) + float(enphase_totals.yearly_total) + float(fronius_totals.yearly_total) + (float(grid_totals.yearly_total)*1000)
     wind_yearly_percent = (float(wind_totals.yearly_total)/yearly_total) * 100
@@ -184,8 +202,14 @@ def dashboard1(request):
     fronius_yearly_percent = (float(fronius_totals.yearly_total)/yearly_total) * 100
     grid_yearly_percent = ((float(grid_totals.yearly_total)*1000)/yearly_total) * 100
 
+    total_yearly_percent = wind_yearly_percent + fronius_yearly_percent + enphase_yearly_percent + grid_yearly_percent
+
     if wind_yearly_percent < 0:
         wind_yearly_percent = 0
+
+    if total_yearly_percent > 99.9:
+        diff = total_yearly_percent - 99.9
+        grid_yearly_percent = grid_yearly_percent - diff
 
     context = {
         'current_solar_enphase': solar.enphase_power,
