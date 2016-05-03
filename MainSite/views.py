@@ -21,12 +21,8 @@ def index(request):
     solar = Solar.objects.order_by('-time_stamp')[0]
     wind = Wind.objects.order_by('-time_stamp')[0]
 
-    #solar_today = Solar.objects.filter(time_stamp__day=datetime.datetime.today().day,
-    #                                   time_stamp__month=datetime.datetime.today().month,
-    #                                   time_stamp__year=datetime.datetime.today().year)
     solar_today = Solar.objects.order_by('-time_stamp')[0:5760]
     meter_today = Meter.objects.order_by('-time_stamp')[0:5760]
-    wind_today = Wind.objects.order_by('-time_stamp')[0:17280]
 
     enphase_today_array = []
     for i in solar_today:
@@ -35,10 +31,6 @@ def index(request):
     fronius_today_array = []
     for i in solar_today:
         fronius_today_array.append([int(time.mktime(i.time_stamp.timetuple()))*1000, float(i.fronius_power)])
-
-    wind_today_array = []
-    for i in wind_today:
-        wind_today_array.append([int(time.mktime(i.time_stamp.timetuple()))*1000, float(i.wind_power)])
 
     meter_today_array = []
     for i in meter_today:
