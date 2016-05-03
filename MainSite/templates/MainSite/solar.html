@@ -2,4 +2,8 @@
 
 {% block title %}Solar Array{% endblock title %}
 
-{%  %}
+{% block sideblock %}{% include 'MainSite/includes/solarinfo.html' %}{% endblock sideblock %}
+
+{% block mainbody %}{% include 'MainSite/includes/solardescription.html' %}{% endblock mainbody %}
+
+{% block graph %}{% endblock graph %}

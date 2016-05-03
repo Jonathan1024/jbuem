@@ -86,10 +86,11 @@ def test(request):
 
 def btc(request):
 
-    dummydata = [ [ 1138683600000 , 7.2800122043237] , [ 1141102800000 , 7.1187787503354] , [ 1143781200000 , 8.351887016482] ]
+    meter = Meter.objects.order_by('-time_stamp')[0]
+    btc_power = meter.btc_power
 
     context = {
-        'btc_power': dummydata
+        'btc_power': btc_power,
     }
 
     return render(request, 'MainSite/btc.html', context)
@@ -97,7 +98,14 @@ def btc(request):
 
 def solar(request):
 
+    solar = Solar.objects.order_by('-time_stamp')[0]
+
+    enphase_power = solar.enphase_power
+    fronius_power = solar.fronius_power
+
     context = {
+        'enphase_power': enphase_power,
+        'fronius_power': fronius_power,
     }
 
     return render(request, 'MainSite/solar.html', context)
