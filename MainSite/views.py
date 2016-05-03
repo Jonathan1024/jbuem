@@ -51,7 +51,6 @@ def index(request):
         'test': test1,
         'enphase_array':enphase_today_array,
         'fronius_array':fronius_today_array,
-        'wind_array':wind_today_array,
         'meter_array':meter_today_array,
     }
 

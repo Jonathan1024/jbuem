@@ -13,8 +13,21 @@
     var histcatexplong = [
         {
             "key" : "BTC Power" ,
-            "values" : {{ enphase_array }}
+            "values" : {{ meter_array }}
         } ,
+        {
+            "key" : "Enphase Power" ,
+            "values" : {{ enphase_array }}
+        },
+        {
+            "key" : "Fronius Power" ,
+            "values" : {{ fronius_array }}
+        },
+            /*
+        {
+            "key" : "Wind Turbine" ,
+            "values" : {{ wind_array }}
+        },*/
 
     ];
     var colors = d3.scale.category20();
@@ -26,7 +39,7 @@
             .y(function(d) { return d[1] })
             .controlLabels({stacked: "Stacked"})
             .duration(300);
-        chart.xAxis.tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
+        chart.xAxis.tickFormat(function(d) { return d3.time.format('%I:%M %p')(new Date(d)) });
         chart.yAxis.tickFormat(d3.format(',.2f'));
         chart.color(["#C0392B","#229954","#2ECC71","#5DADE2"])
         chart.legend.vers('furious');
