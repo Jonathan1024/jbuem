@@ -29,13 +29,14 @@
     var chart;
     nv.addGraph(function() {
         chart = nv.models.stackedAreaChart()
-            .useInteractiveGuideline(true)
+            .useInteractiveGuideline(false)
             .x(function(d) { return d[0] })
             .y(function(d) { return d[1] })
             .controlLabels({stacked: "Stacked"})
             .duration(300);
-        chart.xAxis.tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
-        chart.yAxis.tickFormat(d3.format(',.2f'));
+        chart._options.controlOptions = ['Stacked', 'Expanded']; // hide 'Stream' view
+        chart.xAxis.tickFormat(function(d) { return d3.time.format('%I:%M %p')(new Date(d)) });
+        chart.yAxis.tickFormat(d3.format('s'));
         chart.color(["#C0392B","#229954","#2ECC71","#5DADE2"])
         chart.legend.vers('furious');
         d3.select('#index-power-graph svg')

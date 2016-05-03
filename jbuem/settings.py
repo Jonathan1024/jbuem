@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tdy^d238$us@w5fwabyl^#2v+xx&89079qh7qniq!8$^g1ggvn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 ADMIN_SITE_HEADER = "JBU EM Administration"
 
@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'data_temp',
 		'USER': 'data_bud',
 		'PASSWORD': 'password',
-		'HOST': 'daq.jbu.edu',
+		'HOST': 'localhost',
 		'PORT': '',
     }
 }
