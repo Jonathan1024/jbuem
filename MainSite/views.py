@@ -105,7 +105,29 @@ def solar(request):
 
 def wind(request):
 
+    wind_today = Wind.objects.order_by('-time_stamp')[0:17280]
+
+    wind_current = wind_today[0].wind_power
+    wind_speed = wind_today[0].wind_speed
+    current_temperature = wind_today[0].temperature
+    wind_direction = wind_today[0].wind_direction
+
+    moder = 10
+
+    wind_today_array = []
+    counter = 0
+    for i in wind_today:
+        counter = counter + 1
+        if counter % moder == 0:
+            wind_today_array.append([int(time.mktime(i.time_stamp.timetuple()))*1000, float(i.wind_power)])
+
+
     context = {
+        'wind_today': wind_today_array,
+        'wind_current_power': wind_current,
+        'wind_speed': wind_speed,
+        'current_temperature': current_temperature,
+        'wind_direction': wind_direction,
     }
 
     return render(request, 'MainSite/wind.html', context)

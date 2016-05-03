@@ -1,6 +1,6 @@
 <div class="row">
     <div id="btc-power-graph">
-        <h3 style="text-align: center">Balzer Technology Grid Power Usage</h3>
+        <h3 style="text-align: center">Wind Turbine Power Production</h3>
         <svg style="height: 300px; width: 90%; display: block; margin: auto;"></svg>
     </div>
 </div>
@@ -8,8 +8,8 @@
 <script>
     var histcatexplong = [
         {
-            "key" : "BTC Power" ,
-            "values" : {{ btc_power }}
+            "key" : "Wind Turbine Energy" ,
+            "values" : {{ wind_today }}
         } ,
 
     ];
@@ -24,7 +24,7 @@
             .duration(300);
         chart.xAxis.tickFormat(function(d) { return d3.time.format('%x')(new Date(d)) });
         chart.yAxis.tickFormat(d3.format(',.2f'));
-        chart.color(["#C0392B","#229954","#2ECC71","#5DADE2"])
+        chart.color(["#5DADE2"])
         chart.legend.vers('furious');
         d3.select('#btc-power-graph svg')
             .datum(histcatexplong)
