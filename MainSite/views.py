@@ -42,7 +42,7 @@ def index(request):
 
     meter_today_array = []
     for i in meter_today:
-        meter_today_array.append([int(time.mktime(i.time_stamp.timetuple()))*1000, float(i.btc_power)])
+        meter_today_array.append([int(time.mktime(i.time_stamp.timetuple()))*1000, float(i.btc_power)*1000])
 
 
 
