@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com-->
+<!-- Last Published: Sat Apr 23 2016 01:02:12 GMT+0000 (UTC) -->
+<html data-wf-site="56e77b2d8a573321091637b2" data-wf-page="56e77b2d8a573321091637b3">
+<head>
+  <meta charset="utf-8">
+  <title>Energy Monitoring Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Webflow">
+  <link rel="stylesheet" type="text/css" href="../../static/Resources/CSS/.css">
+  <link rel="stylesheet" type="text/css" href="../../static/Resources/CSS/jbuemp.webflow.css">
+  <link rel="stylesheet" type="text/css" href="../../static/Resources/CSS/webflow.css">
+  <script type="text/javascript" src="../../static/Resources/js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
+  <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+    <style type="text/css">
+      svg {
+      	width: 100%;
+      }
+      .prop {
+        animation: spin 15s infinite linear;
+      }
+      @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+      @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+      @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+    </style>
+</head>
+<body class="body">
+  <div class="w-section w-clearfix mainsection">
+    <div class="title">
+      <h1 class="mainheader">John Brown University Energy Monitoring Project</h1>
+      <p class="projectdesc">A project of the John Brown University Engineering Program</p>
+      <div class="_100percentrule darkrule"></div>
+    </div>
+    <div class="leftcolumn">
+      <div class="w-clearfix iconsection">
+        <div class="iconblock lefticonblock">
+          <div class="iconbox">
+            <p class="sourcename right">Energy Source</p>
+            <div class="_100percentrule darkrule"></div><img src="../../static/Resources/Images/vlank-01.svg" class="icon">
+          </div>
+          <div class="_100percentrule darkrule"></div>
+          <p class="currentenergyoutputp right">Current
+            <br>Today's Total
+            <br>Weekly Total
+            <br>Monthly Total
+            <br>Yearly Total</p>
+        </div>
+      </div>
+      <div class="_100percentrule darkrule"></div>
+      <div class="iconblock lefticonblock">
+        <p class="currentenergyoutputp right graphlabels">Today's Total
+          <br>Weekly Total
+          <br>Monthly Total
+          <br>Yearly Total</p>
+      </div>
+    </div>
+    <div class="w-clearfix rightcolumn">
+      <div class="w-clearfix iconsection">
+        <div class="iconblock">
+          <div class="iconbox">
+            <p class="sourcename">Turbine</p>
+            <div class="_100percentrule darkrule"></div><img src="../../static/Resources/Images/turbine-01.svg" class="icon">
+          </div>
+          <div class="_100percentrule greenrule"></div>
+          <p class="currentenergyoutputp"><span id="currentTurbineEnergy">{{ current_wind | floatformat:2}} W</span>
+            <br><span id="todayTurbineEnergy">{{ daily_wind | floatformat:2 }} kWh</span>
+            <br><span id="weekTurbineEnergy">{{ weekly_wind | floatformat:2 }} kWh</span>
+            <br><span id="monthTurbineEnergy">{{ monthly_wind | floatformat:2 }} kWh</span>
+            <br><span id="yearTurbineEnergy">{{ yearly_wind | floatformat:2 }} kWh</span>
+          </p>
+        </div>
+        <div class="iconblock">
+          <div class="iconbox">
+            <p class="sourcename"><a href="solar" id="unlink">Fronius Solar</a></a></p>
+            <div class="_100percentrule darkrule"></div><img src="../../static/Resources/Images/array-01.svg" class="icon">
+            <div class="_100percentrule froniusrule"></div>
+            <p class="currentenergyoutputp"><span id="currentFroniusEnergy">{{ current_solar_fronius | floatformat:2}} W</span>
+              <br><span id="todayFroniusEnergy">{{ daily_fronius | floatformat:2 }} kWh</span>
+              <br><span id="weekFroniusEnergy">{{ weekly_fronius | floatformat:2 }} kWh</span>
+              <br><span id="monthFroniusEnergy">{{ monthly_fronius | floatformat:2 }} kWh</span>
+              <br><span id="yearFroniusEnergy">{{ yearly_fronius | floatformat:2 }} kWh</span>
+            </p>
+          </div>
+        </div>
+        <div class="iconblock">
+          <div class="iconbox">
+            <p class="sourcename"><a href="solar" id="unlink">Enphase Solar</a></p>
+            <div class="_100percentrule darkrule"></div><img src="../../static/Resources/Images/panel2.svg" class="icon">
+            <div class="_100percentrule enphaserule"></div>
+            <p class="currentenergyoutputp"><span id="currentEnphaseEnergy">{{ current_solar_enphase | floatformat:2}} W</span>
+              <br><span id="todayEnphaseEnergy">{{ daily_enphase | floatformat:2 }} kWh</span>
+              <br><span id="weekEnphaseEnergy">{{ weekly_enphase | floatformat:2 }} kWh</span>
+              <br><span id="monthEnphaseEnergy">{{ monthly_enphase | floatformat:2 }} kWh</span>
+              <br><span id="yearEnphaseEnergy">{{ yearly_enphase | floatformat:2 }} kWh</span>
+            </p>
+          </div>
+        </div>
+        <div class="iconblock">
+          <div class="iconbox">
+            <p class="sourcename">Power Grid</p>
+            <div class="_100percentrule darkrule"></div><img src="../../static/Resources/Images/grid-01.svg" class="icon">
+            <div class="_100percentrule redrule"></div>
+            <p class="currentenergyoutputp"><span id="currentGridEnergy">{{ current_grid | floatformat:2}} kW</span>
+              <br><span id="todayGridEnergy">{{ daily_grid | floatformat:2 }} MWh</span>
+              <br><span id="weekGridEnergy">{{ weekly_grid | floatformat:2 }} MWh</span>
+              <br><span id="monthGridEnergy">{{ monthly_grid | floatformat:2 }} MWh</span>
+              <br><span id="yearGridEnergy">{{ yearly_grid | floatformat:2 }} MWh</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="_100percentrule darkrule"></div>
+      <div class="graphsyo">
+        <div data-ix="bargraphonload" class="thisabargraphyo">
+          <div class="w-clearfix todaysbarsegment" style="width: 100%;">
+            <div id="todayTurbineSegment" class="turbinebarsegment" style="width: {{ wind_daily_percent }}%;">
+              <div id="todayTurbinePercent" class="percentlabel">{{ wind_daily_percent | floatformat:1}}%</div>
+            </div>
+            <div id="todayFroniusSegment" class="froniusbarsegment" style="width: {{ fronius_daily_percent }}%;">
+              <div id="todayFroniusPercent" class="percentlabel">{{ fronius_daily_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="todayEnphaseSegment" class="enphasebarsegment" style="width: {{ enphase_daily_percent }}%;">
+              <div id="todayEnphasePercent" class="percentlabel">{{ enphase_daily_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="todayGridSegment" class="gridbarsegment" style="width: {{ grid_daily_percent }}%;">
+              <div id="todayGridPercent" class="percentlabel">{{ grid_daily_percent | floatformat:1 }}%</div>
+            </div>
+          </div>
+        </div>
+        <div data-ix="bargraphonload-2" class="thisabargraphyo">
+          <div class="weeksbarsegment" style="width: 100%;">
+            <div id="weekTurbineSegment" class="turbinebarsegment" style="width: {{ wind_weekly_percent }}%">
+              <div id="weekTurbinePercent" class="percentlabel">{{ wind_weekly_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="weekFroniusSegment" class="froniusbarsegment" style="width: {{ fronius_weekly_percent }}%">
+              <div id="weekFroniusPercent" class="percentlabel">{{ fronius_weekly_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="weekEnphaseSegment" class="enphasebarsegment" style="width: {{ enphase_weekly_percent }}%">
+              <div id="weekEnphasePercent" class="percentlabel">{{ enphase_weekly_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="weekGridSegment" class="gridbarsegment" style="width: {{ grid_weekly_percent }}%;">
+              <div id="weekGridPercent" class="percentlabel">{{ grid_weekly_percent | floatformat:1 }}%</div>
+            </div>
+          </div>
+        </div>
+        <div data-ix="bargraphonload-3" class="thisabargraphyo">
+          <div class="monthsbarsegment" style="width: 100%;">
+            <div id="monthTurbineSegment" class="turbinebarsegment" style="width: {{ wind_monthly_percent }}%;">
+              <div id="monthTurbinePercent" class="percentlabel">{{ wind_monthly_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="monthFroniusSegment" class="froniusbarsegment" style="width: {{ fronius_monthly_percent }}%;">
+              <div id="monthFroniusPercent" class="percentlabel">{{ fronius_monthly_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="monthEnphaseSegment" class="enphasebarsegment" style="width: {{ enphase_monthly_percent }}%;">
+              <div id="monthEnphasePercent" class="percentlabel">{{ enphase_monthly_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="monthGridSegment" class="gridbarsegment" style="width: {{ grid_monthly_percent }}%;">
+              <div id="monthGridPercent" class="percentlabel">{{ grid_monthly_percent | floatformat:1 }}%</div>
+            </div>
+          </div>
+        </div>
+        <div data-ix="bargraphonload-4" class="thisabargraphyo">
+          <div class="yearsbarsegment">
+            <div id="yearTurbineSegment" class="turbinebarsegment" style="width: {{ wind_yearly_percent }}%;">
+              <div id="yearTurbinePercent" class="percentlabel">{{ wind_yearly_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="yearFroniusSegment" class="froniusbarsegment" style="width: {{ fronius_yearly_percent }}%;">
+              <div id="yearFroniusPercent" class="percentlabel">{{ fronius_yearly_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="yearEnphaseSegment" class="enphasebarsegment" style="width: {{ enphase_yearly_percent }}%;">
+              <div id="yearEnphasePercent" class="percentlabel">{{ enphase_yearly_percent | floatformat:1 }}%</div>
+            </div>
+            <div id="yearGridSegment" class="gridbarsegment" style="width: {{ grid_yearly_percent }}%;">
+              <div id="yearGridPercent" class="percentlabel">{{ grid_yearly_percent | floatformat:1 }}%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="../../static/Resources/js/webflow.js"></script>
+  <!--[if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+</html>
