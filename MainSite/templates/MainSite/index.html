@@ -4,7 +4,7 @@
 
 {% block container %}
     <div class="container">
-        <img class="img-responsive" src="../../static/Resources/Images/btc_1.jpg">
+        <img class="img-responsive" src="{% static 'Resources/Images/btc_1.jpg' %}">
         <div class="well well-sm" style="margin-bottom: 10px;">
             <div class="row hidden-lg hidden-md">
                 <div class="col-xs-6">
@@ -16,16 +16,16 @@
             </div>
             <div class="row hidden-sm hidden-xs">
                 <div class="col-md-3">
-                    Wind Energy: {{ windPower | floatformat:2 }}/3500 W
+                    Wind: {{ windPower | floatformat:2 }}/3500 W
                 </div>
                 <div class="col-md-3">
-                    Enphase Energy: {{ enphasePower | floatformat:2 }}/5500 W
+                    Enphase: {{ enphasePower | floatformat:2 }}/5500 W
                 </div>
                 <div class="col-md-3">
-                    Fronius Energy: {{ froniusPower | floatformat:2 }}/5500 W
+                    Fronius: {{ froniusPower | floatformat:2 }}/5500 W
                 </div>
                 <div class="col-md-3">
-                    Grid Energy: {{ selPower | floatformat:2 }} kW
+                    Power from the Grid: {{ selPower | floatformat:2 }} kW
                 </div>
             </div>
         </div>
