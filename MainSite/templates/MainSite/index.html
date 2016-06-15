@@ -1,59 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="../../static/Resources/CSS/MainPage.css">
-    <link rel="stylesheet" type="text/css" href="../../static/bootstrap/bootstrap-3.3.6-dist/css/bootstrap.css">
+{% extends 'MainSite/base.html' %}
 
-</head>
-<body>
-<nav class="navbar navbar-default" style="border-radius: 0px">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">JBU Energy Monitoring</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-    </ul>
-  </div>
-</nav>
+{% block title %}Home{% endblock title %}
 
-<div class="container">
-    <div class="row" style="margin-top: 5%">
-        <div class="col-lg-6">
-            <div class="row">
-               <div class="jumbotron">
-                    <h2>Balzer Power Usage</h2>
-                    <p>29 MW</p>
+{% block container %}
+    <div class="container">
+        <img class="img-responsive" src="{% static 'Resources/Images/btc_1.jpg' %}">
+        <div class="well well-sm" style="margin-bottom: 10px;">
+            <div class="row hidden-lg hidden-md">
+                <div class="col-xs-6">
+                    Renewable: {{ totalPower | floatformat:2 }} W
+                </div>
+                <div class="col-xs-6">
+                    Grid: {{ selPower | floatformat:2 }} kW
                 </div>
             </div>
-            <div class="row">
-                <div class="jumbotron">
-                    <h2>Wind Data</h2>
-                    <p>1.54 kW</p>
+            <div class="row hidden-sm hidden-xs">
+                <div class="col-md-3">
+                    Wind: {{ windPower | floatformat:2 }}/3500 W
+                </div>
+                <div class="col-md-3">
+                    Enphase: {{ enphasePower | floatformat:2 }}/5500 W
+                </div>
+                <div class="col-md-3">
+                    Fronius: {{ froniusPower | floatformat:2 }}/5500 W
+                </div>
+                <div class="col-md-3">
+                    Power from the Grid: {{ selPower | floatformat:2 }} kW
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="jumbotron">
-                <h2>Solar Data</h2>
-                <h3>Enphase</h3>
-                <p>3 kW</p>
-                <h3>Fronius</h3>
-                <p>2.999 kW</p>
-            </div>
-        </div>
     </div>
-    <div class="row">
-        <div class="jumbotron">
-            <h2>Total Power Produced</h2>
-            <p> 5.999 kW</p>
-        </div>
-    </div>
+    {% include 'MainSite/includes/indexdescription.html' %}
 
-    <div class="row"></div>
-</div>
-
-</body>
-</html>
+{% endblock container %}

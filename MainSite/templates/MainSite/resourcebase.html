@@ -1,0 +1,17 @@
+{% extends 'MainSite/base.html' %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="col-xs-12 col-md-3" style="background-color: #5bc0de; margin-right: 1em; margin-bottom: 1em; padding-bottom: 1em">
+                    {% block sideblock %}This is the side block.{% endblock sideblock %}
+                </div>
+                {% block mainbody %}This is the main body.{% endblock mainbody %}
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% block graph %} Graph goes here {% endblock graph %}
+    </div>
+{% endblock container %}

@@ -1,0 +1,58 @@
+<div class="row">
+    <div id="index-power-graph">
+        <svg style="height: 350px; width: 100%; display: block; margin: auto;"></svg>
+    </div>
+</div>
+
+<script>
+    var histcatexplong = [
+        {
+            "key" : "Grid Energy" ,
+            "values" : {{ meter_array }}
+        } ,
+        {
+            "key" : "Enphase Energy" ,
+            "values" : {{ enphase_array }}
+        },
+        {
+            "key" : "Fronius Energy" ,
+            "values" : {{ fronius_array }}
+        },
+            /*
+        {
+            "key" : "Wind Turbine" ,
+            "values" : {{ wind_array }}
+        },*/
+
+    ];
+
+    var chart;
+    nv.addGraph(function() {
+        chart = nv.models.stackedAreaChart()
+            .useInteractiveGuideline(false)
+            .x(function(d) { return d[0] })
+            .y(function(d) { return d[1] })
+            .controlLabels({stacked: "Stacked"})
+            .duration(300);
+        chart._options.controlOptions = ['Stacked', 'Expanded']; // hide 'Stream' view
+        chart.xAxis.tickFormat(function(d) { return d3.time.format('%I:%M %p')(new Date(d)) });
+        chart.yAxis.tickFormat(d3.format('s'));
+        chart.color(["#C0392B","#229954","#2ECC71","#5DADE2"])
+        chart.legend.vers('furious');
+        d3.select('#index-power-graph svg')
+            .datum(histcatexplong)
+            .transition().duration(1000)
+            .call(chart)
+            .each('start', function() {
+                setTimeout(function() {
+                    d3.selectAll('#index-power-graph *').each(function() {
+                        if(this.__transition__)
+                            this.__transition__.duration = 1;
+                    })
+                }, 0)
+            });
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
+
+</script>
