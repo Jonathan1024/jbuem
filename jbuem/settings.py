@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'data_temp',
 		'USER': 'data_bud',
 		'PASSWORD': 'password',
-		'HOST': 'daq.jbu.edu',
+		'HOST': 'localhost',
 		'PORT': '',
     }
 }
